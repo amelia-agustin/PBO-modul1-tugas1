@@ -1,0 +1,42 @@
+package org.example;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        String NIM;
+        String userName, password;
+        int choose;
+        Scanner objInput = new Scanner(System.in);
+
+    do {
+        System.out.println("===== Library System =====");
+        System.out.println("1. Login as Student\n2. Login as Admin\n3. Exit");
+        System.out.print("Choose option (1-3): ");
+        choose = objInput.nextInt();
+        objInput.nextLine(); //membuat karakter newline
+
+        if (choose == 1){
+            System.out.print("Enter your NIM: ");
+            NIM = objInput.nextLine();
+            if (NIM.length() == 15){
+                System.out.println("Successful login as student");
+            }else {
+                System.out.println("User not found");
+            }
+        } else if (choose == 2) {
+            System.out.print("Enter your username (admin): ");
+            userName = objInput.nextLine();
+            System.out.print("Enter your password (adm1n): ");
+            password = objInput.nextLine();
+            if (userName.equals("admin") && password.equals("adm1n")){
+                System.out.println("Successful login as admin");
+            }else {
+                System.out.println("Admin not found");
+            }
+        }else {
+            System.out.println("adios");
+            return;
+        }
+    }while (choose == 1 || choose == 2 || choose == 3);
+    }
+}
